@@ -21,7 +21,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
       post :create, user: { name: @user.name }
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to admin_user_path(assigns(:user))
   end
 
   test "should show user" do
@@ -36,7 +36,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     patch :update, id: @user, user: { name: @user.name }
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to admin_user_path(assigns(:user))
   end
 
   test "should destroy user" do
@@ -44,6 +44,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to admin_users_path
   end
 end
