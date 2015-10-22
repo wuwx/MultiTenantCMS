@@ -26,7 +26,7 @@ class Admin::SitesControllerTest < ActionController::TestCase
   
   test "should not create site with short name" do
     assert_no_difference('Site.count') do
-      post :create, site: { name: "aaaaa", title: "def" }
+      post :create, site: { name: "aaa", title: "def" }
     end
 
     assert_response :success
@@ -85,7 +85,7 @@ class Admin::SitesControllerTest < ActionController::TestCase
   end
   
   test "should not update site with short name" do
-    patch :update, id: @site, site: { name: "aaaaa", title: "def" }
+    patch :update, id: @site, site: { name: "aaa", title: "def" }
     assert_response :success
   end
   

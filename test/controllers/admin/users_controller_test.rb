@@ -18,10 +18,34 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { name: @user.name }
+      post :create, user: { name: 'aaaa', email: 'xxxxx@sina.com', password: 'password' }
     end
 
     assert_redirected_to admin_user_path(assigns(:user))
+  end
+  
+  test "should not create user with empty name" do
+    assert_no_difference('User.count') do
+      post :create, user: { name: '', email: 'xxxxx@sina.com', password: 'password' }
+    end
+
+    assert_response :success
+  end
+  
+  test "should not create user with empty email" do
+    assert_no_difference('User.count') do
+      post :create, user: { name: 'ccccc', email: '', password: 'password' }
+    end
+
+    assert_response :success
+  end
+  
+  test "should not create user with empty password" do
+    assert_no_difference('User.count') do
+      post :create, user: { name: 'ccccc', email: '', password: '' }
+    end
+
+    assert_response :success
   end
 
   test "should show user" do
