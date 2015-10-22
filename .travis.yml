@@ -1,6 +1,7 @@
 env:
   - DB=sqlite
   - DB=mysql
+  - DB=postgresql
 
 rvm:
   - 2.0.0
