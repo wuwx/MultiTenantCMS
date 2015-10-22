@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to "新建", new_admin_site_path, :class => "btn btn-default" %>
+  </div>
+  <h2>站点列表</h2>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>CreatedAt</th>
+      <th>UpdatedAt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= content_tag_for :tr, @sites do |site| %>
+      <th>#<%= site.id %></th>
+      <td><%= site.name %></td>
+      <td><%= site.title %></td>
+      <td><%= site.created_at %></td>
+      <td><%= site.updated_at %></td>
+    <% end %>
+  </tbody>
+</table>
