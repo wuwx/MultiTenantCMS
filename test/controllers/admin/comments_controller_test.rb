@@ -3,6 +3,9 @@ require 'test_helper'
 class Admin::CommentsControllerTest < ActionController::TestCase
   setup do
     @comment = comments(:one)
+    
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do

@@ -3,6 +3,9 @@ require 'test_helper'
 class Admin::SitesControllerTest < ActionController::TestCase
   setup do
     @site = sites(:one)
+    
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
