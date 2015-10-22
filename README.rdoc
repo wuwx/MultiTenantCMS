@@ -1,4 +1,7 @@
-== README
+== MultiTenantCMS
+
+{<img src="https://travis-ci.org/wuwx/MultiTenantCMS.svg" alt="Build Status" />}[https://travis-ci.org/wuwx/MultiTenantCMS]
+{<img src="https://codeclimate.com/github/wuwx/MultiTenantCMS/badges/gpa.svg" />}[https://codeclimate.com/github/wuwx/MultiTenantCMS]
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

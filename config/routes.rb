@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  resources :links
+  root 'posts#index'
+
+  namespace :admin do
+    root 'posts#index'
+    resources :comments, :links, :posts, :sites, :users
+  end
+
+  resources :comments
+  resources :posts
+  resources :sites
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

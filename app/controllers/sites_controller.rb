@@ -1,0 +1,2 @@
+class SitesController < ApplicationController
+end

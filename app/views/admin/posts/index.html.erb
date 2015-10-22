@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= content_tag_for :tr, @posts do |post| %>
+      <td><%= post.title %></td>
+      <td><%= post.created_at %></td>
+      <td><%= post.updated_at %></td>
+    <% end %>
+  </tbody>
+</table>
