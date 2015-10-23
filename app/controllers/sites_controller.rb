@@ -1,6 +1,5 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
-  helper_method :current_site
 
   # GET /sites/1
   # GET /sites/1.json
@@ -64,10 +63,6 @@ class SitesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def site_params
     params.require(:site).permit(:name, :title)
-  end
-
-  def current_site
-    @site ||= Site.find(params[:id])
   end
 
 end

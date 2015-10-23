@@ -11,12 +11,12 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to current_site.title, current_site, class: "navbar-brand" %></a>
+        <%= link_to @site.title, @site, class: "navbar-brand" %></a>
       </div>
 
       <ul class="nav navbar-nav">
-        <%= content_tag_for :li, current_site.posts do |post| %>
-          <%= link_to post.title, [current_site, post] %>
+        <%= content_tag_for :li, @site.posts do |post| %>
+          <%= link_to post.title, [@site, post] %>
         <% end %>
       </ul>
     </div>
@@ -33,7 +33,7 @@
             友情链接
           </div>
           <div class="list-group">
-            <% current_site.links.each do |link| %>
+            <% @site.links.each do |link| %>
               <%= link_to link.name, link.url, class: "list-group-item" %>
             <% end %>
           </div>

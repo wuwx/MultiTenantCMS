@@ -1,8 +1,8 @@
 class Sites::ApplicationController < ::ApplicationController
-  helper_method :current_site
+  before_action :set_site
 
   private
-    def current_site
-      Site.first
+    def set_site
+      @site ||= Site.find(params[:site_id])
     end
 end

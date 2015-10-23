@@ -9,8 +9,8 @@ class Sites::CommentsController < Sites::ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to [current_site, @comment.post], notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: [current_site, @comment.post] }
+        format.html { redirect_to [@site, @comment.post], notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: [@site, @post, @comment] }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -21,7 +21,7 @@ class Sites::CommentsController < Sites::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:post_id])
+      @post = @site.posts.find(params[:post_id])
     end
 
     def set_comment

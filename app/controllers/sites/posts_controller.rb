@@ -4,7 +4,7 @@ class Sites::PostsController < Sites::ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = @site.posts.all
   end
 
   # GET /posts/1
@@ -15,18 +15,18 @@ class Sites::PostsController < Sites::ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = @site.posts.new
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_site.posts.new(post_params)
+    @post = @site.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to [current_site, @post], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: [current_site, @post] }
+        format.html { redirect_to [@site, @post], notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: [@site, @post] }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class Sites::PostsController < Sites::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = @site.posts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
