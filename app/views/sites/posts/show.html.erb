@@ -11,4 +11,4 @@
   <%= render @post.comments %>
 </div>
 
-<%= render 'sites/comments/form' %>
+<%= render partial: 'sites/comments/form', locals: { commentable: @post } %>

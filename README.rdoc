@@ -4,29 +4,4 @@
 {<img src="https://codeclimate.com/github/wuwx/MultiTenantCMS/badges/gpa.svg" />}[https://codeclimate.com/github/wuwx/MultiTenantCMS]
 {<img src="https://codeclimate.com/github/wuwx/MultiTenantCMS/badges/coverage.svg" />}[https://codeclimate.com/github/wuwx/MultiTenantCMS/coverage]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+MultiTenantCMS 是使用 Rails 框架编写的多租户 CMS 系统，其目标是构建一套实际可用的站群系统

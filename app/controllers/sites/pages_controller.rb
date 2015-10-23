@@ -15,13 +15,14 @@ class Sites::PagesController < Sites::ApplicationController
 
   # GET /pages/new
   def new
-    @page = @site.pages.new
+    @page = Page.new
   end
 
   # POST /pages
   # POST /pages.json
   def create
-    @page = @site.pages.new(page_params)
+    @page = Page.new(page_params)
+    @page.site = @site
 
     respond_to do |format|
       if @page.save
