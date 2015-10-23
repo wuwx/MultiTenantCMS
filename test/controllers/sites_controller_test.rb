@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SitesControllerTest < ActionController::TestCase
   setup do
-    @site = sites(:one)
+    @site = FactoryGirl.create(:site)
   end
 
   test "should get index" do
@@ -30,27 +30,59 @@ class SitesControllerTest < ActionController::TestCase
     assert_redirected_to site_path(assigns(:site))
   end
 
+  test "user should not create site with empty name" do
+    @user = users(:one)
+    sign_in @user
+    
+    assert_no_difference('Site.count') do
+      post :create, site: { name: "", title: "def" }
+    end
+
+    assert_response :success
+  end
+  
+  test "user should not create site with empyt title" do
+    @user = users(:one)
+    sign_in @user
+    
+    assert_no_difference('Site.count') do
+      post :create, site: { name: "abcdef", title: "" }
+    end
+
+    assert_response :success
+  end
+
   test "should show site" do
     get :show, id: @site
     assert_response :success
   end
 
-  test "user should get edit" do
-    @user = users(:one)
-    sign_in @user
-
+  test "guest should not get edit" do
     assert_raises Pundit::NotAuthorizedError do
       get :edit, id: @site
     end
   end
 
-  test "user should update site" do
-    @user = users(:one)
-    sign_in @user
-
+  test "guest should not update site" do
     assert_raises Pundit::NotAuthorizedError do
       patch :update, id: @site, site: { name: "abcaaaaa", title: "def" }
     end
+  end
+  
+  test "user should get edit" do
+    @user = @site.user
+    sign_in @user
+
+    get :edit, id: @site
+    assert_response :success
+  end
+
+  test "user should update site" do
+    @user = @site.user
+    sign_in @user
+
+    patch :update, id: @site, site: { name: "abcaaaaa", title: "def" }
+    assert_redirected_to site_path(assigns(:site))
   end
 
 end
