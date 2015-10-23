@@ -38,7 +38,7 @@ class Sites::PagesController < Sites::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = @site.pages.find(params[:id])
+      @page = @site.pages.find_by_title(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
