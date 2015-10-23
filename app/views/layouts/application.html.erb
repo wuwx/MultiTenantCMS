@@ -15,11 +15,35 @@
       </div>
 
       <ul class="nav navbar-nav">
-        <li><%= link_to '文章', admin_posts_path %></li>
-        <li><%= link_to '评论', admin_comments_path %></li>
-        <li><%= link_to '链接', admin_links_path %></li>
-        <li><%= link_to '站点', admin_sites_path %></li>
-        <li><%= link_to '用户', admin_users_path %></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% unless user_signed_in? %>
+          <li><%= link_to '注册', new_user_registration_path, class: 'top-create-account' %></li>
+          <li><%= link_to '登录', new_user_session_path, class: 'top-sign-in' %></li>
+        <% else %>
+          <li class="dropdown">
+            <%= link_to '#', "class" => "dropdown-toggle", "data-toggle" => "dropdown" do %>
+              我的站点 <span class="caret"></span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <%= content_tag_for :li, current_user.sites do |site| %>
+                <%= link_to site.title, site %>
+              <% end %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to '新建站点', new_site_path %></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <%= link_to '#', "class" => "dropdown-toggle", "data-toggle" => "dropdown" do %>
+              <%= current_user.name %> <span class="caret"></span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to '退出登录', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>

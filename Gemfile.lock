@@ -63,6 +63,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.6)
     devise-i18n (0.12.1)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -177,6 +178,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.2)
+  devise-bootstrap-views (~> 0.0.6)
   devise-i18n (~> 0.12.1)
   inherited_resources (~> 1.6)
   jbuilder (~> 2.0)

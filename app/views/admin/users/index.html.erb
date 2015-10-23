@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to "新建", new_admin_user_path, :class => "btn btn-default" %>
+  </div>
+  <h2>站点列表</h2>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>CreatedAt</th>
+      <th>UpdatedAt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= content_tag_for :tr, @users do |user| %>
+      <th>#<%= user.id %></th>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.updated_at %></td>
+    <% end %>
+  </tbody>
+</table>

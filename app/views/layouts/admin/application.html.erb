@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MultiTenantCMS</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">MultiTenantCMS</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to '文章', admin_posts_path %></li>
+        <li><%= link_to '评论', admin_comments_path %></li>
+        <li><%= link_to '链接', admin_links_path %></li>
+        <li><%= link_to '站点', admin_sites_path %></li>
+        <li><%= link_to '用户', admin_users_path %></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+</body>
+</html>
