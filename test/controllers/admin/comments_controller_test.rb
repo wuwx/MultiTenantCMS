@@ -3,7 +3,7 @@ require 'test_helper'
 class Admin::CommentsControllerTest < ActionController::TestCase
   setup do
     @comment = FactoryGirl.create(:comment)
-    sign_in @comment.post.site.user
+    sign_in @comment.commentable.site.user
   end
 
   test "should get index" do

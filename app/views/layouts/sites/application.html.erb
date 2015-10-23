@@ -15,8 +15,8 @@
       </div>
 
       <ul class="nav navbar-nav">
-        <%= content_tag_for :li, @site.posts do |post| %>
-          <%= link_to post.title, [@site, post] %>
+        <%= content_tag_for :li, @site.pages do |page| %>
+          <%= link_to page.title, [@site, page] %>
         <% end %>
       </ul>
     </div>

@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   belongs_to :user
   belongs_to :site
-  has_many :comments
+  has_many :comments, as: :commentable
   
   acts_as_list scope: :site
   acts_as_tree
