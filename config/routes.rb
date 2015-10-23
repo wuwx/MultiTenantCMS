@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  resources :links
-  root 'posts#index'
+  root 'sites#index'
 
   namespace :admin do
     root 'posts#index'
     resources :comments, :links, :posts, :sites, :users
   end
 
-  resources :comments
-  resources :posts
-  resources :sites
   resources :users
+
+  resources :sites do
+    resources :comments, module: 'sites'
+    resources :posts, module: 'sites'
+    resources :links, module: 'sites'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

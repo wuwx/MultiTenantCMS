@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    文章列表
+  </div>
+  <div class="panel-body">
+    <%= div_for @posts do |post| %>
+      <li><%= link_to post.title, post %></li>
+    <% end %>
+  </div>
+</div>

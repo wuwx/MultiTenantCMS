@@ -7,8 +7,8 @@
   </thead>
   <tbody>
     <%= content_tag_for :tr, @sites do |site| %>
-      <td><%= site.name %></td>
-      <td><%= site.title %></td>
+      <td><%= link_to site.name, site %></td>
+      <td><%= link_to site.title, site %></td>
     <% end %>
   </tbody>
 </table>

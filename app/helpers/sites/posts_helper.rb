@@ -1,0 +1,2 @@
+module Sites::PostsHelper
+end
