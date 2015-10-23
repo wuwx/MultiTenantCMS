@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration
       t.string :url
       t.string :name
       t.string :image
+      t.references :site
       t.timestamps null: false
     end
   end

@@ -19,6 +19,11 @@ class SitesController < ApplicationController
     @site = Site.new
   end
 
+  # GET /sites/1/edit
+  def edit
+    authorize @site
+  end
+
   # POST /sites
   # POST /sites.json
   def create
@@ -30,6 +35,21 @@ class SitesController < ApplicationController
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
+        format.json { render json: @site.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /sites/1
+  # PATCH/PUT /sites/1.json
+  def update
+    authorize @site
+    respond_to do |format|
+      if @site.update(site_params)
+        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
+        format.json { render :show, status: :ok, location: @site }
+      else
+        format.html { render :edit }
         format.json { render json: @site.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +67,7 @@ class SitesController < ApplicationController
   end
 
   def current_site
-    @site = Site.find(params[:id])
+    @site ||= Site.find(params[:id])
   end
 
 end

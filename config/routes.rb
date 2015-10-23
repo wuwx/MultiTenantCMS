@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :sites do
-    resources :comments, module: 'sites'
-    resources :posts, module: 'sites'
+    resources :posts, module: 'sites' do
+      resources :comments
+    end
     resources :links, module: 'sites'
   end
 

@@ -11,7 +11,7 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">MultiTenantCMS</a>
+        <%= link_to current_site.title, current_site, class: "navbar-brand" %></a>
       </div>
 
       <ul class="nav navbar-nav">
@@ -23,7 +23,23 @@
   </nav>
 
   <div class="container">
-    <%= yield %>
+    <div class="row">
+      <div class="col-xs-9">
+        <%= yield %>
+      </div>
+      <div class="col-xs-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            友情链接
+          </div>
+          <div class="list-group">
+            <% current_site.links.each do |link| %>
+              <%= link_to link.name, link.url, class: "list-group-item" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
