@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :post do
+  factory :page do
     site
     user
     title "Title"

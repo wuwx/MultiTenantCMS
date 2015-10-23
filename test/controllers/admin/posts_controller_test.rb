@@ -2,10 +2,8 @@ require 'test_helper'
 
 class Admin::PostsControllerTest < ActionController::TestCase
   setup do
-    @post = posts(:one)
-    
-    @user = users(:one)
-    sign_in @user
+    @post = FactoryGirl.create(:post)
+    sign_in @post.user
   end
 
   test "should get index" do

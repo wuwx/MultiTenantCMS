@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022132634) do
+ActiveRecord::Schema.define(version: 20151023111508) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20151022132634) do
     t.string   "name"
     t.string   "image"
     t.integer  "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "site_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "parent_id"
+    t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

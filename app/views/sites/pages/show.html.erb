@@ -1,14 +1,14 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3><%= @post.title %></h3>
+    <h3><%= @page.title %></h3>
   </div>
   <div class="panel-body">
-    <%= @post.content %>
+    <%= @page.content %>
   </div>
 </div>
 
 <div class="panel panel-default">
-  <%= render @post.comments %>
+  <%= render @page.comments %>
 </div>
 
 <%= render 'sites/comments/form' %>

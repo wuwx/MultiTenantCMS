@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'posts#index'
-    resources :comments, :links, :posts, :sites, :users
+    resources :comments, :links, :pages, :posts, :sites, :users
   end
 
   resources :users
 
   resources :sites do
-    resources :posts, module: 'sites' do
+    resources :pages, :posts, module: 'sites' do
       resources :comments
     end
     resources :links, module: 'sites'

@@ -1,5 +1,6 @@
 class Site < ActiveRecord::Base
   belongs_to :user
+  has_many :pages
   has_many :posts
   has_many :links
 

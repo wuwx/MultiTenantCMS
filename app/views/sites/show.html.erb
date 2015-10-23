@@ -1,6 +1,6 @@
 <%= div_for @site.posts, class: "media" do |post| %>
   <div class="media-body">
-    <h4 class="media-heading"><%= post.title %></h4>
+    <h4 class="media-heading"><%= link_to post.title, [@site, post] %></h4>
     <%= post.content %>
   </div>
 <% end %>

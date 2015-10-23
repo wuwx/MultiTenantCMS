@@ -1,4 +1,10 @@
 <%= simple_form_for [@site, @post, @post.comments.new] do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= f.input :content %>
+    </div>
+    <div class="panel-footer">
+      <%= f.button :submit %>
+    </div>
+  </div>
 <% end %>

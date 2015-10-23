@@ -2,10 +2,8 @@ require 'test_helper'
 
 class Admin::LinksControllerTest < ActionController::TestCase
   setup do
-    @link = links(:one)
-    
-    @user = users(:one)
-    sign_in @user
+    @link = FactoryGirl.create(:link)
+    sign_in @link.site.user
   end
 
   test "should get index" do

@@ -2,9 +2,7 @@ require 'test_helper'
 
 class Admin::UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
-    
-    @user = users(:one)
+    @user = FactoryGirl.create(:user)
     sign_in @user
   end
 

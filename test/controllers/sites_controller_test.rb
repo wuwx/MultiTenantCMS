@@ -12,7 +12,7 @@ class SitesControllerTest < ActionController::TestCase
   end
 
   test "user should get new" do
-    @user = users(:one)
+    @user = FactoryGirl.create(:user)
     sign_in @user
 
     get :new
@@ -20,8 +20,7 @@ class SitesControllerTest < ActionController::TestCase
   end
 
   test "user should create site" do
-    @user = users(:one)
-    sign_in @user
+    sign_in @site.user
 
     assert_difference('Site.count') do
       post :create, site: { name: "abcdef", title: "def" }
@@ -31,8 +30,7 @@ class SitesControllerTest < ActionController::TestCase
   end
 
   test "user should not create site with empty name" do
-    @user = users(:one)
-    sign_in @user
+    sign_in @site.user
     
     assert_no_difference('Site.count') do
       post :create, site: { name: "", title: "def" }
@@ -42,8 +40,7 @@ class SitesControllerTest < ActionController::TestCase
   end
   
   test "user should not create site with empyt title" do
-    @user = users(:one)
-    sign_in @user
+    sign_in @site.user
     
     assert_no_difference('Site.count') do
       post :create, site: { name: "abcdef", title: "" }

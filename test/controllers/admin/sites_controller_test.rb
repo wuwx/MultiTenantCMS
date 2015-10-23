@@ -3,9 +3,7 @@ require 'test_helper'
 class Admin::SitesControllerTest < ActionController::TestCase
   setup do
     @site = FactoryGirl.create(:site)
-    
-    @user = users(:one)
-    sign_in @user
+    sign_in @site.user
   end
 
   test "should get index" do
