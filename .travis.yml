@@ -6,3 +6,7 @@ env:
 rvm:
   - 2.0.0
   - 2.2.0
+
+addons:
+    code_climate:
+        repo_token: dd927e8a1e40f4fe67a1150a22aedb5403119c70ff3165210f424ef6b01c8022
