@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151023111508) do
   create_table "pages", force: :cascade do |t|
     t.integer  "site_id"
     t.integer  "user_id"
+    t.string   "slug"
     t.string   "title"
     t.text     "content"
     t.integer  "parent_id"
@@ -55,7 +56,7 @@ ActiveRecord::Schema.define(version: 20151023111508) do
 
   create_table "sites", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name"
+    t.string   "slug"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

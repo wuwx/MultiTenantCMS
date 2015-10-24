@@ -1,26 +1,29 @@
 Rails.application.routes.draw do
 
+  #root 'sites#index'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  root 'sites#index'
+  resources :users
 
   namespace :admin do
     root 'posts#index'
     resources :comments, :links, :pages, :posts, :sites, :users
   end
 
-  resources :users
+  namespace :settings do
+    resources :sites
+  end
 
-  resources :sites, only: [:new, :create, :edit, :update]
   resources :sites, path: '', only: [:show] do
     resources :posts, module: 'sites' do
       resources :comments
     end
-    resources :links, module: 'sites'
     resources :pages, module: 'sites', path: '' do
       resources :comments
     end
+    resources :links, module: 'sites'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

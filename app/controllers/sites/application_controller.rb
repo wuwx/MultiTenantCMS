@@ -3,6 +3,6 @@ class Sites::ApplicationController < ::ApplicationController
 
   private
     def set_site
-      @site ||= Site.find_by_name(params[:site_id])
+      @site ||= Site.find(params[:site_id])
     end
 end

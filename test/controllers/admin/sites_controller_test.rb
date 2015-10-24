@@ -24,42 +24,10 @@ class Admin::SitesControllerTest < ActionController::TestCase
 
     assert_redirected_to admin_site_path(assigns(:site))
   end
-  
-  test "should not create site with short name" do
-    assert_no_difference('Site.count') do
-      post :create, site: { name: "aaa", title: "def" }
-    end
 
-    assert_response :success
-  end
-  
-  test "should not create site with long name" do
-    assert_no_difference('Site.count') do
-      post :create, site: { name: "12345678901234567", title: "def" }
-    end
-
-    assert_response :success
-  end
-  
-  test "should not create site with capitalized name" do
-    assert_no_difference('Site.count') do
-      post :create, site: { name: "ABCDEFG", title: "def" }
-    end
-
-    assert_response :success
-  end
-  
-  test "should not create site with empty name" do
-    assert_no_difference('Site.count') do
-      post :create, site: { name: "", title: "def" }
-    end
-
-    assert_response :success
-  end
-  
   test "should not create site with empyt title" do
     assert_no_difference('Site.count') do
-      post :create, site: { name: "abcdef", title: "" }
+      post :create, site: { title: "" }
     end
 
     assert_response :success
@@ -76,30 +44,10 @@ class Admin::SitesControllerTest < ActionController::TestCase
   end
 
   test "should update site" do
-    patch :update, id: @site, site: { name: "abcaaaaa", title: "def" }
+    patch :update, id: @site, site: { title: "def" }
     assert_redirected_to admin_site_path(assigns(:site))
   end
-  
-  test "should not update site with empty name" do
-    patch :update, id: @site, site: { name: "", title: "def" }
-    assert_response :success
-  end
-  
-  test "should not update site with short name" do
-    patch :update, id: @site, site: { name: "aaa", title: "def" }
-    assert_response :success
-  end
-  
-  test "should not update site with long name" do
-    patch :update, id: @site, site: { name: "12345678901234567", title: "def" }
-    assert_response :success
-  end
-  
-  test "should not update site with capitalized name" do
-    patch :update, id: @site, site: { name: "ABCDEFG", title: "def" }
-    assert_response :success
-  end
-  
+
   test "should not update site with empty title" do
     patch :update, id: @site, site: { name: "abc", title: "" }
     assert_response :success
