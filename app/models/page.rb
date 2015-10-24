@@ -3,8 +3,7 @@ class Page < ActiveRecord::Base
   belongs_to :site
   has_many :comments, as: :commentable
 
-  acts_as_list scope: :site
-  acts_as_tree
+  acts_as_nested_set :scope => :site
 
   validates :title, presence: true
   validates :content, presence: true

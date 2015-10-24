@@ -40,10 +40,15 @@ ActiveRecord::Schema.define(version: 20151023111508) do
     t.string   "title"
     t.text     "content"
     t.integer  "parent_id"
-    t.integer  "position"
+    t.integer  "lft",        null: false
+    t.integer  "rgt",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "pages", ["lft"], name: "index_pages_on_lft"
+  add_index "pages", ["parent_id"], name: "index_pages_on_parent_id"
+  add_index "pages", ["rgt"], name: "index_pages_on_rgt"
 
   create_table "posts", force: :cascade do |t|
     t.integer  "site_id"

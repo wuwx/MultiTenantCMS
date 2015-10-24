@@ -15,7 +15,7 @@
       </div>
 
       <ul class="nav navbar-nav">
-        <%= content_tag_for :li, @site.pages do |page| %>
+        <%= content_tag_for :li, @site.pages.roots do |page| %>
           <%= link_to page.title, [@site, page] %>
         <% end %>
       </ul>
@@ -28,6 +28,12 @@
     </ol>
     <div class="row">
       <div class="col-xs-3">
+        <div class="list-group">
+          <%= link_to "页面管理", site_settings_pages_path(@site), class: "list-group-item" %>
+          <%= link_to "文章管理", site_settings_posts_path(@site), class: "list-group-item" %>
+          <%= link_to "评论管理", site_settings_comments_path(@site), class: "list-group-item" %>
+          <%= link_to "链接管理", site_settings_links_path(@site), class: "list-group-item" %>
+        </div>
       </div>
       <div class="col-xs-9">
         <%= yield %>

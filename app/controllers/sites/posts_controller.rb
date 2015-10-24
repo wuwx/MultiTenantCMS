@@ -13,27 +13,6 @@ class Sites::PostsController < Sites::ApplicationController
     authorize @post
   end
 
-  # GET /posts/new
-  def new
-    @post = @site.posts.new
-  end
-
-  # POST /posts
-  # POST /posts.json
-  def create
-    @post = @site.posts.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to [@site, @post], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: [@site, @post] }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
