@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    site
+    category
+    site { category.site }
     user
     title "Title"
     content "Content"

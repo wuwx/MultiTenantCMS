@@ -24,7 +24,8 @@ Rails.application.routes.draw do
       resources :links
       namespace :settings do
         get "/" => 'posts#index'
-        resources :comments, :links, :pages, :posts
+        resources :categories, :links, :pages, :posts
+        resources :comments, only: [:index, :show, :destroy]
       end
       resources :pages, path: '', only: [:show] do
         resources :comments, only: [:create]

@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :link do
     url "Url"
     name "Name"
-    site
+    association :site, factory: :site
   end
 
 end

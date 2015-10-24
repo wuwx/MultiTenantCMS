@@ -1,4 +1,4 @@
-class Sites::Settings::LinksController < Sites::Settings::ApplicationController
+class Sites::Settings::CategoriesController < Sites::Settings::ApplicationController
   inherit_resources
   belongs_to :site
 
@@ -8,15 +8,15 @@ class Sites::Settings::LinksController < Sites::Settings::ApplicationController
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
-    def link_params
-      params.require(:link).permit(:name)
+    def category_params
+      params.require(:category).permit(:name)
     end
 
     def resource_url
-      site_settings_link_url
+      site_settings_category_url
     end
 
     def collection_url
-      site_settings_links_url
+      site_settings_categories_url
     end
 end
