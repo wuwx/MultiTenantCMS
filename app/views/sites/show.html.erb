@@ -1,6 +1,12 @@
-<%= div_for @site.posts, class: "media" do |post| %>
-  <div class="media-body">
-    <h4 class="media-heading"><%= link_to post.title, [@site, post] %></h4>
-    <%= post.content %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    文章列表
   </div>
-<% end %>
+  <table class="table table-hover">
+    <tbody>
+      <%= content_tag_for :tr, @site.posts do |post| %>
+        <td><%= link_to post.title, [@site, post] %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

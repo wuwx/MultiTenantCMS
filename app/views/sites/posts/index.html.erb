@@ -2,9 +2,11 @@
   <div class="panel-heading">
     文章列表
   </div>
-  <div class="panel-body">
-    <%= div_for @posts do |post| %>
-      <li><%= link_to post.title, [@site, post] %></li>
-    <% end %>
-  </div>
+  <table class="table table-hover">
+    <tbody>
+      <%= content_tag_for :tr, @posts do |post| %>
+        <td><%= link_to post.title, [@site, post] %></td>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <%= div_for @posts do |post| %>
-      <li><%= link_to post.title, [@site, post] %></li>
+      <li><%= link_to post.title, [:edit, @site, :settings, post] %></li>
     <% end %>
   </div>
 </div>

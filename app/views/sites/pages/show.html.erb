@@ -8,8 +8,9 @@
 </div>
 
 <div class="panel panel-default">
-  <%= render @page.comments %>
+  <ul class="list-group">
+    <%= render @page.comments %>
+  </ul>
 </div>
 
 <%= render partial: 'sites/comments/form', locals: { commentable: @page } %>
-
