@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       resources :comments
     end
     resources :links, module: 'sites'
+    namespace :settings do
+      resources :comments, :links, :pages, :posts
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
