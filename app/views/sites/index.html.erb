@@ -1,0 +1,12 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= content_tag_for :tr, @sites do |site| %>
+      <td><%= link_to site.title, site %></td>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  #root 'sites#index'
+  root 'sites#index'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -18,15 +18,16 @@ Rails.application.routes.draw do
 
   resources :sites, path: '', only: [:show] do
     scope module: 'sites' do
-      resources :pages, path: '', only: [:show] do
-        resources :comments, only: [:create]
-      end
       resources :posts, only: [:index, :show] do
         resources :comments, only: [:create]
       end
       resources :links
       namespace :settings do
+        get "/" => 'posts#index'
         resources :comments, :links, :pages, :posts
+      end
+      resources :pages, path: '', only: [:show] do
+        resources :comments, only: [:create]
       end
     end
   end

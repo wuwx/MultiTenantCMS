@@ -50,6 +50,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    breadcrumbs_on_rails (2.3.1)
     builder (3.2.2)
     byebug (6.0.2)
     codeclimate-test-reporter (0.4.8)
@@ -198,6 +199,7 @@ DEPENDENCIES
   acts_as_list (~> 0.7.2)
   acts_as_tree (~> 2.2)
   bootstrap-sass (~> 3.3, >= 3.3.5.1)
+  breadcrumbs_on_rails (~> 2.3, >= 2.3.1)
   byebug
   codeclimate-test-reporter (~> 0.4.8)
   coffee-rails (~> 4.1.0)

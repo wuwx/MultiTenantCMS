@@ -1,2 +1,2 @@
-class Sites::Settings::LinksController < ApplicationController
+class Sites::Settings::LinksController < Sites::Settings::ApplicationController
 end

@@ -7,6 +7,10 @@ class SitesController < ApplicationController
     render layout: "sites/application"
   end
 
+  def index
+    @sites = Site.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site

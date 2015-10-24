@@ -1,4 +1,4 @@
-<%= simple_form_for [@site, @page] do |f| %>
+<%= simple_form_for [@site, :settings, @page] do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
   <%= f.button :submit %>

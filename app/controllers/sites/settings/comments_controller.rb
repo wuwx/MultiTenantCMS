@@ -1,2 +1,2 @@
-class Sites::Settings::CommentsController < ApplicationController
+class Sites::Settings::CommentsController < Sites::Settings::ApplicationController
 end
