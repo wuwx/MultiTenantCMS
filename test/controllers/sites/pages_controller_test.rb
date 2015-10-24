@@ -5,10 +5,9 @@ class Sites::PagesControllerTest < ActionController::TestCase
     @page = FactoryGirl.create(:page)
     sign_in @page.user
   end
-  
-  test "should get index" do
-    get :index, :site_id => @page.site
+
+  test "should show page" do
+    get :show, site_id: @page.site, id: @page
     assert_response :success
-    assert_not_nil assigns(:pages)
   end
 end

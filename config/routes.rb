@@ -17,15 +17,17 @@ Rails.application.routes.draw do
   end
 
   resources :sites, path: '', only: [:show] do
-    resources :posts, module: 'sites' do
-      resources :comments
-    end
-    resources :pages, module: 'sites', path: '' do
-      resources :comments
-    end
-    resources :links, module: 'sites'
-    namespace :settings do
-      resources :comments, :links, :pages, :posts
+    scope module: 'sites' do
+      resources :pages, path: '', only: [:show] do
+        resources :comments, only: [:create]
+      end
+      resources :posts, only: [:index, :show] do
+        resources :comments, only: [:create]
+      end
+      resources :links
+      namespace :settings do
+        resources :comments, :links, :pages, :posts
+      end
     end
   end
 
