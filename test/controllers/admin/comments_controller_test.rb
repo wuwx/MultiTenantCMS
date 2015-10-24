@@ -3,7 +3,9 @@ require 'test_helper'
 class Admin::CommentsControllerTest < ActionController::TestCase
   setup do
     @comment = FactoryGirl.create(:comment)
-    sign_in @comment.commentable.site.user
+
+    @user = FactoryGirl.create(:admin)
+    sign_in @user
   end
 
   test "should get index" do
@@ -12,32 +14,9 @@ class Admin::CommentsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:comments)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create comment" do
-    assert_difference('Comment.count') do
-      post :create, comment: {  }
-    end
-
-    assert_redirected_to admin_comment_path(assigns(:comment))
-  end
-
   test "should show comment" do
     get :show, id: @comment
     assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @comment
-    assert_response :success
-  end
-
-  test "should update comment" do
-    patch :update, id: @comment, comment: {  }
-    assert_redirected_to admin_comment_path(assigns(:comment))
   end
 
   test "should destroy comment" do

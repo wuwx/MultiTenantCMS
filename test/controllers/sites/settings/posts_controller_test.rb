@@ -26,6 +26,22 @@ class Sites::Settings::PostsControllerTest < ActionController::TestCase
     assert_redirected_to edit_site_settings_post_path(@site, assigns(:post))
   end
 
+  test "should not create empty title post" do
+    assert_no_difference('Post.count') do
+      post :create, site_id: @site, post: { title: "", content: "Content" }
+    end
+
+    assert_response :success
+  end
+
+  test "should not create empty content post" do
+    assert_no_difference('Post.count') do
+      post :create, site_id: @site, post: { title: "Title", content: "" }
+    end
+
+    assert_response :success
+  end
+
   test "should get edit" do
     get :edit, site_id: @site, id: @post
     assert_response :success

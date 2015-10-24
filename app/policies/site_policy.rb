@@ -1,7 +1,16 @@
 class SitePolicy < ApplicationPolicy
 
   def update?
-    record.user && record.user == user
+    return false unless user
+    record.user === user || user.admin?
+  end
+
+  def destroy?
+    user.admin?
+  end
+
+  def create?
+    user
   end
 
   class Scope < Scope

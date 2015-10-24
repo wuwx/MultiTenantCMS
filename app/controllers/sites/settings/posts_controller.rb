@@ -1,9 +1,9 @@
 class Sites::Settings::PostsController < Sites::Settings::ApplicationController
-  inherit_resources
-  belongs_to :site
 
   def create
-    create! { edit_site_settings_post_url(id: @post) }
+    create! do |success, failure|
+      success.html { redirect_to edit_site_settings_post_url(id: @post) }
+    end
   end
 
   def update

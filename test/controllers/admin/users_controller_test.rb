@@ -3,7 +3,9 @@ require 'test_helper'
 class Admin::UsersControllerTest < ActionController::TestCase
   setup do
     @user = FactoryGirl.create(:user)
-    sign_in @user
+
+    @admin = FactoryGirl.create(:admin)
+    sign_in @admin
   end
 
   test "should get index" do
@@ -24,7 +26,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to admin_user_path(assigns(:user))
   end
-  
+
   test "should not create user with empty name" do
     assert_no_difference('User.count') do
       post :create, user: { name: '', email: 'xxxxx@sina.com', password: 'password' }
@@ -32,7 +34,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     assert_response :success
   end
-  
+
   test "should not create user with empty email" do
     assert_no_difference('User.count') do
       post :create, user: { name: 'ccccc', email: '', password: 'password' }
@@ -40,7 +42,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     assert_response :success
   end
-  
+
   test "should not create user with empty password" do
     assert_no_difference('User.count') do
       post :create, user: { name: 'ccccc', email: '', password: '' }

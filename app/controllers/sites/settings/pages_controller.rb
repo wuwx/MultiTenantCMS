@@ -1,7 +1,5 @@
 class Sites::Settings::PagesController < Sites::Settings::ApplicationController
-  inherit_resources
-  belongs_to :site
-
+  
   def create
     create! { edit_site_settings_page_url(id: @page) }
   end

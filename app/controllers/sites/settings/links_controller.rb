@@ -1,6 +1,4 @@
 class Sites::Settings::LinksController < Sites::Settings::ApplicationController
-  inherit_resources
-  belongs_to :site
 
   def update
     update! { collection_url }

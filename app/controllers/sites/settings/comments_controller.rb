@@ -1,6 +1,4 @@
 class Sites::Settings::CommentsController < Sites::Settings::ApplicationController
-  inherit_resources
-  belongs_to :site
 
   private
     def resource_url

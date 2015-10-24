@@ -1,5 +1,4 @@
 class Admin::PostsController < Admin::ApplicationController
-  inherit_resources
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
