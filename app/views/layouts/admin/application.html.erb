@@ -14,13 +14,15 @@
         <a class="navbar-brand" href="#">MultiTenantCMS</a>
       </div>
 
-      <ul class="nav navbar-nav">
-        <li><%= link_to '文章', admin_posts_path %></li>
-        <li><%= link_to '评论', admin_comments_path %></li>
-        <li><%= link_to '链接', admin_links_path %></li>
-        <li><%= link_to '站点', admin_sites_path %></li>
-        <li><%= link_to '用户', admin_users_path %></li>
-      </ul>
+      <%= render_navigation do |menu|
+        menu.dom_class = 'nav navbar-nav'
+        menu.selected_class = 'active'
+        menu.item :posts,    '文章', admin_posts_path,    highlights_on: :subpath
+        menu.item :comments, '评论', admin_comments_path, highlights_on: :subpath
+        menu.item :links,    '链接', admin_links_path,    highlights_on: :subpath
+        menu.item :sites,    '站点', admin_sites_path,    highlights_on: :subpath
+        menu.item :users,    '用户', admin_users_path,    highlights_on: :subpath
+      end %>
     </div>
   </nav>
 
