@@ -2,9 +2,11 @@
   <div class="panel-heading">
     页面列表
   </div>
-  <div class="panel-body">
-    <%= div_for @pages do |page| %>
-      <li><%= link_to page.title, [:edit, @site, :settings, page] %></li>
-    <% end %>
-  </div>
+  <table class="table table-hover">
+    <tbody>
+      <%= content_tag_for :tr, @pages do |page| %>
+        <td><%= link_to page.title, [:edit, @site, :settings, page] %></td>
+      <% end %>
+    </tbody>
+  </table>
 </div>

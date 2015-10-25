@@ -28,13 +28,7 @@
     </ol>
     <div class="row">
       <div class="col-xs-3">
-        <div class="list-group">
-          <%= link_to "页面管理", site_settings_pages_path(@site), class: "list-group-item" %>
-          <%= link_to "文章管理", site_settings_posts_path(@site), class: "list-group-item" %>
-          <%= link_to "评论管理", site_settings_comments_path(@site), class: "list-group-item" %>
-          <%= link_to "链接管理", site_settings_links_path(@site), class: "list-group-item" %>
-          <%= link_to "文章分类", site_settings_categories_path(@site), class: "list-group-item" %>
-        </div>
+				<%= render_navigation :renderer => :links %>
       </div>
       <div class="col-xs-9">
         <%= yield %>

@@ -6,6 +6,9 @@ class Settings::SitesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+    
     get :index
     assert_response :success
     assert_not_nil assigns(:sites)
@@ -40,15 +43,15 @@ class Settings::SitesControllerTest < ActionController::TestCase
   end
 
   test "guest should not get edit" do
-    assert_raises Pundit::NotAuthorizedError do
-      get :edit, id: @site
-    end
+    get :edit, id: @site
+    
+    assert_redirected_to new_user_session_path
   end
 
   test "guest should not update site" do
-    assert_raises Pundit::NotAuthorizedError do
-      patch :update, id: @site, site: { name: "abcaaaaa", title: "def" }
-    end
+    patch :update, id: @site, site: { name: "abcaaaaa", title: "def" }
+    
+    assert_redirected_to new_user_session_path
   end
 
   test "user should get edit" do

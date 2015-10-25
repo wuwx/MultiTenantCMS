@@ -1,4 +1,4 @@
-class Settings::SitesController < ApplicationController
+class Settings::SitesController < Settings::ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
