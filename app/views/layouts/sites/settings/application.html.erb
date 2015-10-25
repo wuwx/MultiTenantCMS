@@ -14,11 +14,14 @@
         <%= link_to @site.title, @site, class: "navbar-brand" %></a>
       </div>
 
-      <ul class="nav navbar-nav">
-        <%= content_tag_for :li, @site.pages.roots do |page| %>
-          <%= link_to page.title, [@site, page] %>
-        <% end %>
-      </ul>
+			<%= render_navigation do |menu|
+			  menu.dom_class = 'nav navbar-nav'
+				menu.selected_class = 'active'
+        @site.pages.roots.each do |page|
+          menu.item page.id, page.title, site_page_path(@site, page)
+        end
+				menu.item :posts, "站内文章", site_posts_path(@site), highlights_on: :subpath
+			end %>
     </div>
   </nav>
 
@@ -28,7 +31,15 @@
     </ol>
     <div class="row">
       <div class="col-xs-3">
-				<%= render_navigation :renderer => :links %>
+				<%= render_navigation :renderer => :links do |list|
+			    list.dom_class = 'list-group'
+			    list.selected_class = 'active'
+			    list.item :pages,      '页面管理', site_settings_pages_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
+			    list.item :posts,      '文章管理', site_settings_posts_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
+			    list.item :comments,   '评论管理', site_settings_comments_path,   html: {class: 'list-group-item'}, highlights_on: :subpath
+			    list.item :links,      '链接管理', site_settings_links_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
+			    list.item :categories, '文章分类', site_settings_categories_path, html: {class: 'list-group-item'}, highlights_on: :subpath
+				end %>
       </div>
       <div class="col-xs-9">
         <%= yield %>
