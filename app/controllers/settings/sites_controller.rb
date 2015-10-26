@@ -57,6 +57,6 @@ class Settings::SitesController < Settings::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:name, :title)
+      params.require(:site).permit(:slug, :title)
     end
 end
