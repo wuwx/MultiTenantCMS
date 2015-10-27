@@ -8,6 +8,7 @@ class SitesControllerTest < ActionController::TestCase
   test "should show site" do
     get :show, id: @site
     assert_response :success
+    assert_select 'title', "MultiTenantCMS"
   end
 
 end
