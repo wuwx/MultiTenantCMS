@@ -1,6 +1,10 @@
 class Sites::PostsController < Sites::ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  has_widgets do |root|
+    root << widget(:comments)
+  end
+
   # GET /posts
   # GET /posts.json
   def index
