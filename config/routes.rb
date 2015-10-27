@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'posts#index'
     resources :comments, :links, :pages, :posts, :sites, :users
+    resources :themes
   end
 
   namespace :settings do
