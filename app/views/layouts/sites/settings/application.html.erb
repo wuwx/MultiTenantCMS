@@ -31,14 +31,18 @@
     </ol>
     <div class="row">
       <div class="col-xs-3">
-				<%= render_navigation :renderer => :links do |list|
-			    list.dom_class = 'list-group'
-			    list.selected_class = 'active'
-			    list.item :pages,      '页面管理', site_settings_pages_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
-			    list.item :posts,      '文章管理', site_settings_posts_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
-			    list.item :comments,   '评论管理', site_settings_comments_path,   html: {class: 'list-group-item'}, highlights_on: :subpath
-			    list.item :links,      '链接管理', site_settings_links_path,      html: {class: 'list-group-item'}, highlights_on: :subpath
-			    list.item :categories, '文章分类', site_settings_categories_path, html: {class: 'list-group-item'}, highlights_on: :subpath
+				<%= render_navigation do |primary|
+			    primary.dom_class = 'list-group'
+			    primary.selected_class = 'active'
+          primary.item :posts, '文章管理', site_settings_posts_path, html: {class: 'list-group-item'} do |secondary|
+            secondary.item :posts, '列表', site_settings_posts_path
+            secondary.item :new_post, '撰写', new_site_settings_post_path
+            secondary.item :categories, '分类', site_settings_categories_path
+            secondary.item :tags, '标签', site_settings_tags_path
+          end
+			    primary.item :pages, '页面管理', site_settings_pages_path, html: {class: 'list-group-item'}, highlights_on: :subpath
+			    primary.item :comments, '评论管理', site_settings_comments_path, html: {class: 'list-group-item'}, highlights_on: :subpath
+			    primary.item :links, '链接管理', site_settings_links_path, html: {class: 'list-group-item'}, highlights_on: :subpath
 				end %>
       </div>
       <div class="col-xs-9">
