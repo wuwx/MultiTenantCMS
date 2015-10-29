@@ -1,7 +1,11 @@
-== MultiTenantCMS
+= MultiTenantCMS
 
 {<img src="https://travis-ci.org/wuwx/MultiTenantCMS.svg" alt="Build Status" />}[https://travis-ci.org/wuwx/MultiTenantCMS]
 {<img src="https://codeclimate.com/github/wuwx/MultiTenantCMS/badges/gpa.svg" />}[https://codeclimate.com/github/wuwx/MultiTenantCMS]
 {<img src="https://codeclimate.com/github/wuwx/MultiTenantCMS/badges/coverage.svg" />}[https://codeclimate.com/github/wuwx/MultiTenantCMS/coverage]
 
 MultiTenantCMS 是使用 Rails 框架编写的多租户 CMS 系统，其目标是构建一套实际可用的站群系统
+
+== License
+
+MultiTenantCMS is released under the MIT License.
