@@ -8,7 +8,7 @@ class Sites::PostsController < Sites::ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @site.posts.all
+    @posts = @site.posts.order(id: :DESC)
   end
 
   # GET /posts/1

@@ -13,15 +13,7 @@
       <div class="navbar-header">
         <%= link_to @site.title, @site, class: "navbar-brand" %></a>
       </div>
-
-			<%= render_navigation do |menu|
-			  menu.dom_class = 'nav navbar-nav'
-				menu.selected_class = 'active'
-        @site.pages.roots.each do |page|
-          menu.item page.id, page.title, site_page_path(@site, page)
-        end
-				menu.item :posts, "站内文章", site_posts_path(@site), highlights_on: :subpath
-			end %>
+      <%= render_navigation :level => 3 %>
     </div>
   </nav>
 
@@ -31,21 +23,10 @@
     </ol>
     <div class="row">
       <div class="col-xs-3">
-				<%= render_navigation do |primary|
-			    primary.dom_class = 'list-group'
-			    primary.selected_class = 'active'
-          primary.item :posts, '文章管理', site_settings_posts_path, html: {class: 'list-group-item'} do |secondary|
-            secondary.item :posts, '列表', site_settings_posts_path
-            secondary.item :new_post, '撰写', new_site_settings_post_path
-            secondary.item :categories, '分类', site_settings_categories_path
-            secondary.item :tags, '标签', site_settings_tags_path
-          end
-			    primary.item :pages, '页面管理', site_settings_pages_path, html: {class: 'list-group-item'}, highlights_on: :subpath
-			    primary.item :comments, '评论管理', site_settings_comments_path, html: {class: 'list-group-item'}, highlights_on: :subpath
-			    primary.item :links, '链接管理', site_settings_links_path, html: {class: 'list-group-item'}, highlights_on: :subpath
-				end %>
+        <%= render_navigation :level => 4 %>
       </div>
       <div class="col-xs-9">
+        <%= render_navigation :level => 5 %>
         <%= yield %>
       </div>
     </div>

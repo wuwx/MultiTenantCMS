@@ -13,14 +13,7 @@
       <div class="navbar-header">
         <%= link_to @site.title, @site, class: "navbar-brand" %></a>
       </div>
-			<%= render_navigation do |menu|
-			  menu.dom_class = 'nav navbar-nav'
-				menu.selected_class = 'active'
-        @site.pages.roots.each do |page|
-          menu.item page.id, page.title, site_page_path(@site, page)
-        end
-				menu.item :posts, "站内文章", site_posts_path(@site), highlights_on: :subpath
-			end %>
+      <%= render_navigation level: 3 %>
     </div>
   </nav>
 

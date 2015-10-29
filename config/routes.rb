@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :admin do
-    root 'posts#index'
+    get "/" => 'sites#index'
     resources :comments, :links, :pages, :posts, :sites, :users
     resources :themes
   end
@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     resources :sites
   end
 
-  resources :sites, path: '', only: [:show] do
+  resources :sites, only: [:index]
+  resources :sites, path: '', only: [:show, :index] do
     scope module: 'sites' do
       resources :posts, only: [:index, :show] do
         resources :comments, only: [:create]

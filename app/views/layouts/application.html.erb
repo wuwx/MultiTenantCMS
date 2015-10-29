@@ -13,10 +13,8 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/">MultiTenantCMS</a>
       </div>
-
-      <ul class="nav navbar-nav">
-
-      </ul>
+ 
+      <%= render_navigation level: 1 %>
 
       <ul class="nav navbar-nav navbar-right">
         <% unless user_signed_in? %>
