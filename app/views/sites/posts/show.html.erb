@@ -7,12 +7,6 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <ul class="list-group">
-    <%= render @post.comments %>
-  </ul>
-</div>
-
-<%= render_widget(:comments) %>
+<%= render_widget(:comments, :display, :commentable => @post) %>
 
 <%= render partial: 'sites/comments/form', locals: { commentable: @post } %>

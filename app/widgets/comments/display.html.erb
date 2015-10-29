@@ -1,9 +1,8 @@
-<%= widget_div do %>
-  <h1>
-    CommentsWidget#display
-  </h1>
-
-  <p>
-    Find me in app/widgets/comments/display.html.erb
-  </p>
+<%= widget_div :class => "panel panel-default" do %>
+  <div class="panel-heading">
+    <h4>CommentsWidget</h4>
+  </div>
+  <ul class="list-group">
+    <%= render @comments %>
+  </ul>
 <% end %>

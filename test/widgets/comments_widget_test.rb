@@ -6,7 +6,8 @@ class CommentsWidgetTest < Apotomo::TestCase
   end
   
   test "display" do
-    render_widget :comments
+    @post = FactoryGirl.create(:post)
+    render_widget :comments, :display, { :commentable => @post }
     #assert_select "h1"
   end
 end
