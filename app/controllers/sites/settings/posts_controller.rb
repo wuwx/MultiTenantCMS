@@ -16,6 +16,10 @@ class Sites::Settings::PostsController < Sites::Settings::ApplicationController
       params.require(:post).permit(:title, :content)
     end
 
+    def collection
+      get_collection_ivar || set_collection_ivar(end_of_association_chain.reverse_order)
+    end
+
     def resource_url
       site_settings_post_url
     end
