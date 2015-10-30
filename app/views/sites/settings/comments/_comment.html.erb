@@ -1,0 +1,9 @@
+<%= div_for comment, :class => "media" do %>
+  <div class="media-body">
+    <div class="media-heading">
+      <%= link_to "删除", site_settings_comment_path(@site, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= comment.created_at %>
+    </div>
+    <%= comment.content %>
+  </div>
+<% end %>

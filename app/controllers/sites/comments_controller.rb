@@ -6,6 +6,7 @@ class Sites::CommentsController < Sites::ApplicationController
   # POST /comments.json
   def create
     @comment = @commentable.comments.new(comment_params)
+    @comment.site = @commentable.site
 
     respond_to do |format|
       if @comment.save
