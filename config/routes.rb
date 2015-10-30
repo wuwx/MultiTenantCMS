@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'sites#index'
-
+  # mount RailsDb::Engine => '/rails/db', :as => 'rails_db'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :sites, only: [:index]
-  resources :sites, path: '', only: [:show, :index] do
+  resources :sites, path: '', only: [:show, :index], constraints: {id: /[0-9]+/} do
     scope module: 'sites' do
       resources :posts, only: [:index, :show] do
         resources :comments, only: [:create]
