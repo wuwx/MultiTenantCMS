@@ -20,7 +20,7 @@ SimpleNavigation::Configuration.run do |navigation|
             posts.selected_class = 'active'
             posts.item :index, '列表', site_settings_posts_path(@site)
             posts.item :new, '撰写', new_site_settings_post_path(@site)
-            posts.item :categories, '分类', site_settings_categories_path(@site)
+            posts.item :categories, '分类', site_settings_categories_path(@site), highlights_on: :subpath
             posts.item :tags, '标签', site_settings_tags_path(@site)
           end
           settings.item :pages, '页面管理', site_settings_pages_path(@site), html: {class: 'list-group-item'}, highlights_on: :subpath do |pages|
