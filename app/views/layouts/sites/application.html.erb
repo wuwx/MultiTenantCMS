@@ -36,6 +36,18 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
+            文章标签
+          </div>
+          <div class="list-group">
+            <% @site.tags.each do |tag| %>
+              <%= link_to tag.name, "#", class: "list-group-item" %>
+            <% end %>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
             友情链接
           </div>
           <div class="list-group">

@@ -18,8 +18,10 @@ SimpleNavigation::Configuration.run do |navigation|
           settings.item :posts, '文章管理', site_settings_posts_path(@site), html: {class: 'list-group-item'} do |posts|
             posts.dom_class = 'nav nav-tabs'
             posts.selected_class = 'active'
-            posts.item :index, '列表', site_settings_posts_path(@site)
-            posts.item :new, '撰写', new_site_settings_post_path(@site)
+            posts.item :posts, '列表', site_settings_posts_path(@site) do |posts|
+              posts.item :post, 'Post', proc { site_settings_post_path(@site, @post) }, if: proc { @post && @post.persisted? }, highlights_on: :subpath
+            end
+            posts.item :new_post, '撰写', new_site_settings_post_path(@site)
             posts.item :categories, '分类', site_settings_categories_path(@site), highlights_on: :subpath
             posts.item :tags, '标签', site_settings_tags_path(@site)
           end

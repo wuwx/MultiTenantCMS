@@ -1,0 +1,5 @@
+<%= simple_form_for [@site, :settings, @link] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :url %>
+  <%= f.submit :class => "btn btn-default" %>
+<% end %>
