@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -55,6 +55,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
+  config.vm.provision "shell", inline: "apt-get install -y nodejs"
+  config.vm.provision "shell", privileged: false, inline: <<-EOF
+    cd /vagrant
+    curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+    curl -sSL https://get.rvm.io | bash -s stable --ruby
+    source /home/vagrant/.rvm/scripts/rvm
+    gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+    gem install bundler
+    bundle config mirror.https://rubygems.org https://ruby.taobao.org
+    bundle install
+    rake db:migrate
+    rails server -d -b 0.0.0.0
+  EOF
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
