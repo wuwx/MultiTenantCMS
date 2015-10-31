@@ -14,6 +14,11 @@ vagrant up
 ```
 
 ### Docker
+```bash
+docker build -t multitenantcms .
+docker run -it multitenantcms /bin/bash --login
+rails server
+```
 
 ## Getting Started
 
