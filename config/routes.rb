@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'sites#index'
 
+  mount RailsDb::Engine => '/rails/db', :as => 'rails_db'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
