@@ -21,6 +21,9 @@ rails server
 ```
 
 ## Getting Started
+```bash
+http://localhost:3000
+```
 
 ## License
 
