@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
 
-  theme :default
+  theme "flat-ui", except: [:index]
 
   def show
     @site = Site.find(params[:id])
@@ -8,7 +8,6 @@ class SitesController < ApplicationController
 
   def index
     @sites = Site.all
-    render layout: "application"
   end
 
 end

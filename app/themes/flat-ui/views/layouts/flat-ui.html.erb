@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat-ui</title>
+  <%= stylesheet_link_tag    "flat-ui/all", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "flat-ui/all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to @site.title, @site, class: "navbar-brand" %></a>
+    </div>
+    <%= render_navigation level: 3 %>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <%= yield %>
+    </div>
+    <div class="col-xs-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          文章分类
+        </div>
+        <div class="list-group">
+          <% @site.categories.each do |category| %>
+              <%= link_to category.name, "#", class: "list-group-item" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          文章标签
+        </div>
+        <div class="list-group">
+          <% @site.tags.each do |tag| %>
+              <%= link_to tag.name, "#", class: "list-group-item" %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          友情链接
+        </div>
+        <div class="list-group">
+          <% @site.links.each do |link| %>
+              <%= link_to link.name, link.url, class: "list-group-item" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          管理工具
+        </div>
+        <div class="list-group">
+          <%= link_to "新增页面", new_site_settings_page_path(@site), class: "list-group-item" %>
+          <%= link_to "新增文章", new_site_settings_post_path(@site), class: "list-group-item" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

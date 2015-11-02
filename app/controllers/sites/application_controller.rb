@@ -1,6 +1,6 @@
 class Sites::ApplicationController < ::ApplicationController
   before_action :set_site
-  theme :default
+  theme "flat-ui"
 
   private
     def set_site
