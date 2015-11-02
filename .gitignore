@@ -7,11 +7,14 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore Vagrant
-/.vagrant
+/.idea
 
 # Ignore RVM
 /.rvmrc
+
+# Ignore Vagrant
+/.vagrant
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
