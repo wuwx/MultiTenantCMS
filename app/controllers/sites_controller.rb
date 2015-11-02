@@ -1,12 +1,14 @@
 class SitesController < ApplicationController
 
+  theme :default
+
   def show
     @site = Site.find(params[:id])
-    render layout: "sites/application"
   end
 
   def index
     @sites = Site.all
+    render layout: "application"
   end
 
 end
