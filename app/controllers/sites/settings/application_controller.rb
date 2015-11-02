@@ -1,7 +1,6 @@
 class Sites::Settings::ApplicationController < ::ApplicationController
   before_action :authenticate_user!
   theme Proc.new { |controller| Site.find(controller.params[:site_id]).theme || 'default' }
-  layout 'sites/settings/application'
 
   inherit_resources
   belongs_to :site

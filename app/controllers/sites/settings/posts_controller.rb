@@ -1,5 +1,7 @@
 class Sites::Settings::PostsController < Sites::Settings::ApplicationController
 
+  layout 'sites/settings/application'
+
   def create
     create! do |success, failure|
       success.html { redirect_to edit_site_settings_post_url(id: @post) }
