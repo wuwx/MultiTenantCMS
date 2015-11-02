@@ -4,6 +4,7 @@ class CreateSites < ActiveRecord::Migration
       t.references :user
       t.string :slug
       t.string :title
+      t.string :theme
       t.timestamps null: false
     end
   end
