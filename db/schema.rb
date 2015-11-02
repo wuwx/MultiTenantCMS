@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151028114035) do
     t.integer  "user_id"
     t.string   "slug"
     t.string   "title"
+    t.string   "theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

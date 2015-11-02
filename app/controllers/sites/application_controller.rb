@@ -1,6 +1,6 @@
 class Sites::ApplicationController < ::ApplicationController
   before_action :set_site
-  theme "flat-ui"
+  theme Proc.new { |controller| Site.find(controller.params[:site_id]).theme || 'default' }
 
   private
     def set_site

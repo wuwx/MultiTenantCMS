@@ -6,7 +6,7 @@
   </thead>
   <tbody>
     <%= content_tag_for :tr, @sites do |site| %>
-      <td><%= link_to site.title, site %></td>
+      <td><%= link_to site.title, [:edit, :settings, site] %></td>
     <% end %>
   </tbody>
 </table>

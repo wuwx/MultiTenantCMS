@@ -1,6 +1,5 @@
 class SitesController < ApplicationController
-
-  theme "flat-ui", except: [:index]
+  theme Proc.new { |controller| Site.find(controller.params[:id]).theme || 'default' }, except: [:index]
 
   def show
     @site = Site.find(params[:id])
