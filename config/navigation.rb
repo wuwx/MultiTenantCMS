@@ -15,7 +15,7 @@ SimpleNavigation::Configuration.run do |navigation|
         site.item :settings, '站点设置', site_settings_path(@site) do |settings|
           settings.dom_class = 'list-group'
           settings.selected_class = 'active'
-          settings.item :posts, '文章管理', site_settings_posts_path(@site), html: {class: 'list-group-item'} do |posts|
+          settings.item :posts, '文章管理', site_settings_posts_path(@site), link_html: {class: 'list-group-item'} do |posts|
             posts.dom_class = 'nav nav-tabs'
             posts.selected_class = 'active'
             posts.item :posts, '列表', site_settings_posts_path(@site) do |posts|
@@ -25,14 +25,14 @@ SimpleNavigation::Configuration.run do |navigation|
             posts.item :categories, '分类', site_settings_categories_path(@site), highlights_on: :subpath
             posts.item :tags, '标签', site_settings_tags_path(@site)
           end
-          settings.item :pages, '页面管理', site_settings_pages_path(@site), html: {class: 'list-group-item'}, highlights_on: :subpath do |pages|
+          settings.item :pages, '页面管理', site_settings_pages_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath do |pages|
             pages.dom_class = 'nav nav-tabs'
             pages.selected_class = 'active'
             pages.item :index, '列表', site_settings_pages_path(@site)
             pages.item :new, '撰写', new_site_settings_page_path(@site)
           end
-          settings.item :comments, '评论管理', site_settings_comments_path(@site), html: {class: 'list-group-item'}, highlights_on: :subpath
-          settings.item :links, '链接管理', site_settings_links_path(@site), html: {class: 'list-group-item'}, highlights_on: :subpath
+          settings.item :comments, '评论管理', site_settings_comments_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
+          settings.item :links, '链接管理', site_settings_links_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
         end
       end
     end
