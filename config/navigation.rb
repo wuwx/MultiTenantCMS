@@ -33,7 +33,12 @@ SimpleNavigation::Configuration.run do |navigation|
           end
           settings.item :comments, '评论管理', site_settings_comments_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
           settings.item :links, '链接管理', site_settings_links_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
-          settings.item :themes, '外观设置', site_settings_themes_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
+          settings.item :themes, '外观设置', site_settings_themes_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath do |themes|
+            themes.dom_class = 'nav nav-tabs'
+            themes.selected_class = 'active'
+            themes.item :themes, '模板', site_settings_themes_path(@site)
+            themes.item :widgets, '小组件', site_settings_widgets_path(@site)
+          end
         end
       end
     end
