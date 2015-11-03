@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.dom_class = 'nav navbar-nav'
     primary.selected_class = 'active'
     primary.item :sites, '站点列表', sites_path do |sites|
-      sites.item :site, 'Site', proc { site_path(@site) }, if: proc { @site && @site.persisted? } do |site|
+      sites.item :site, proc { @site.title }, proc { site_path(@site) }, if: proc { @site && @site.persisted? } do |site|
         site.dom_class = 'nav navbar-nav'
         site.selected_class = 'active'
 
@@ -19,7 +19,7 @@ SimpleNavigation::Configuration.run do |navigation|
             posts.dom_class = 'nav nav-tabs'
             posts.selected_class = 'active'
             posts.item :posts, '列表', site_settings_posts_path(@site) do |posts|
-              posts.item :post, 'Post', proc { site_settings_post_path(@site, @post) }, if: proc { @post && @post.persisted? }, highlights_on: :subpath
+              posts.item :post, proc { @post.title }, proc { site_settings_post_path(@site, @post) }, if: proc { @post && @post.persisted? }, highlights_on: :subpath
             end
             posts.item :new_post, '撰写', new_site_settings_post_path(@site)
             posts.item :categories, '分类', site_settings_categories_path(@site), highlights_on: :subpath
