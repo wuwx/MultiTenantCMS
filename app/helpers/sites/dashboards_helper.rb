@@ -1,0 +1,2 @@
+module Sites::DashboardsHelper
+end

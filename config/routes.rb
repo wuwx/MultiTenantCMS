@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
   resources :users
+  resources :sites, only: [:index]
 
   namespace :admin do
     get "/" => 'sites#index'
@@ -21,22 +23,20 @@ Rails.application.routes.draw do
     resources :sites
   end
 
-  resources :sites, only: [:index]
-  resources :sites, path: '', only: [:show, :index] do
-    scope module: 'sites' do
-      resources :posts, only: [:index, :show] do
-        resources :comments, only: [:create]
-      end
-      resources :links
-      namespace :settings do
-        get "/" => 'posts#index'
-        resources :posts, :categories, :tags
-        resources :links, :pages
-        resources :comments, only: [:index, :show, :destroy]
-      end
-      resources :pages, path: '', only: [:show] do
-        resources :comments, only: [:create]
-      end
+  scope ':site_id', module: 'sites', as: "site" do
+    get "/" => "dashboards#show"
+    resources :posts, only: [:index, :show] do
+      resources :comments, only: [:create]
+    end
+    resources :links
+    namespace :settings do
+      get "/" => 'posts#index'
+      resources :posts, :categories, :tags
+      resources :links, :pages
+      resources :comments, only: [:index, :show, :destroy]
+    end
+    resources :pages, path: '', only: [:show] do
+      resources :comments, only: [:create]
     end
   end
 
