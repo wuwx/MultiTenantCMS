@@ -18,6 +18,7 @@
 //= require_tree .
 
 $(document).on('page:change', function () {
+    tinyMCE.remove();
     tinyMCE.init({
         selector: "textarea.tinymce",
         menubar: false,
