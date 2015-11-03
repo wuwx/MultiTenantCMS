@@ -2,7 +2,7 @@ class Sites::ApplicationController < ::ApplicationController
   before_action :set_site
 
   before_action do |controller|
-    @theme = @site.theme ? 'default' : @site.theme
+    @theme = @site.theme ? @site.theme : 'default'
     controller.prepend_view_path "app/themes/#{@theme}/views"
   end
 
