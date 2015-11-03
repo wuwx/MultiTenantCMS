@@ -3,7 +3,7 @@
     <h3><%= @page.title %></h3>
   </div>
   <div class="panel-body">
-    <%= @page.content %>
+    <%= sanitize @page.content %>
   </div>
 </div>
 

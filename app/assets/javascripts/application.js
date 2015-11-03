@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require tinymce-jquery
 //= require_tree .
+
+$(document).on('page:change', function () {
+    tinyMCE.init({
+        selector: "textarea.tinymce",
+        menubar: false,
+        toolbar: ["styleselect | bold italic | undo redo"],
+        plugins: "image,link"
+    });
+});

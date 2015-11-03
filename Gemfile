@@ -50,6 +50,7 @@ gem 'factory_girl_rails', '~> 4.5', group: :test
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'flat-ui-sass', '~> 2.1', '>= 2.1.3'
+gem 'tinymce-rails', '~> 4.2', '>= 4.2.6'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'simple_form', '~> 3.2'

@@ -2,6 +2,6 @@
   <%= f.input :parent_id, collection: nested_set_options(@site.pages) {|i| "#{'-' * i.level} #{i.title}" } %>
   <%= f.input :title %>
   <%= f.input :slug %>
-  <%= f.input :content %>
+  <%= f.input :content, :input_html => { :class => "tinymce" } %>
   <%= f.button :submit %>
 <% end %>
