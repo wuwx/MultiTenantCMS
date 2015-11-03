@@ -1,7 +1,5 @@
 class Sites::Settings::CategoriesController < Sites::Settings::ApplicationController
 
-  layout 'sites/settings/application'
-
   def update
     update! { collection_url }
   end

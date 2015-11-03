@@ -15,3 +15,7 @@ Rails.application.config.assets.precompile += Dir["app/themes/*"].map { |path| "
 Rails.application.config.assets.precompile += Dir["app/themes/*"].map { |path| "#{path.split('/').last}/all.css" }
 
 Rails.application.config.assets.precompile += ['flat-ui/**/*']
+
+Dir.glob("#{Rails.root}/app/themes/*/assets/*").each do |dir|
+  Rails.application.config.assets.paths << dir
+end

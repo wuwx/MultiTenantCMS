@@ -1,6 +1,10 @@
 class Sites::ApplicationController < ::ApplicationController
   before_action :set_site
-  theme Proc.new { |controller| Site.find(controller.params[:site_id]).theme || 'default' }
+
+  before_action do |controller|
+    @theme = @site.theme ? 'default' : @site.theme
+    controller.prepend_view_path "app/themes/#{@theme}/views"
+  end
 
   private
     def set_site
