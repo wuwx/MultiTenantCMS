@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     namespace :settings do
       get "/" => 'posts#index'
       resources :posts, :categories, :tags
-      resources :links, :pages, :themes, :widgets
+      resources :links, :pages, :themes, :widgets, :plugins
       resources :custom_fields
       resources :comments, only: [:index, :show, :destroy]
     end
