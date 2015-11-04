@@ -1,6 +1,6 @@
 <%= simple_form_for [:settings, @site] do |f| %>
   <%= f.input :title %>
   <%= f.input :slug %>
-  <%= f.input :theme, collection: ["default", "flat-ui", "bootstrap-material-design"] %>
+  <%= f.input :theme, collection: ["default", "flat-ui", "material"] %>
   <%= f.button :submit %>
 <% end %>
