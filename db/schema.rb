@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028114035) do
+ActiveRecord::Schema.define(version: 20151104022146) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20151028114035) do
   end
 
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+
+  create_table "custom_fields", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "links", force: :cascade do |t|
     t.string   "url"

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       get "/" => 'posts#index'
       resources :posts, :categories, :tags
       resources :links, :pages, :themes, :widgets
+      resources :custom_fields
       resources :comments, only: [:index, :show, :destroy]
     end
     resources :pages, path: '', only: [:show] do
