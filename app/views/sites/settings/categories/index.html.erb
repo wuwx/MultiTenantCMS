@@ -1,5 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Categories</div>
+  <div class="panel-heading">
+    <div >
+      <%= link_to "新建", new_site_settings_category_path(@site), class: "btn btn-primary btn-lg pull-right" %>
+    </div>
+    <h5>分类列表</h5>
+  </div>
   <div class="panel-body">
     <table class="table">
       <thead>
