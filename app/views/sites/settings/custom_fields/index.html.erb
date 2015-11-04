@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @custom_fields.each do |custom_field| %>
+    <tr>
+      <td><%= custom_field.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -24,7 +24,9 @@ SimpleNavigation::Configuration.run do |navigation|
             posts.item :new_post, '撰写', new_site_settings_post_path(@site)
             posts.item :categories, '分类', site_settings_categories_path(@site), highlights_on: :subpath
             posts.item :tags, '标签', site_settings_tags_path(@site)
-            posts.item :custom_fields, '属性', site_settings_custom_fields_path(@site)
+            posts.item :custom_fields, '属性', site_settings_custom_fields_path(@site) do |custom_fields|
+              custom_fields.item :new, '新增', new_site_settings_custom_field_path(@site)
+            end
           end
           settings.item :pages, '页面管理', site_settings_pages_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath do |pages|
             pages.dom_class = 'nav nav-tabs'
