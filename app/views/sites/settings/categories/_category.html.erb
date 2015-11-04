@@ -1,4 +1,4 @@
 <%= content_tag_for :tr, category do %>
   <td><%= link_to category.name, edit_site_settings_category_path(@site, category) %></td>
-  <td><%= link_to "Delete", site_settings_category_path(@site, category), :method => :delete, :data => { :confirm => "are you sure ?" } %></td>
+  <td><%= link_to "Delete", site_settings_category_path(@site, category), :class => "btn btn-sm btn-default", :method => :delete, :data => { :confirm => "are you sure ?" } %></td>
 <% end %>
