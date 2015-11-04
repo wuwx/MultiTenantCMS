@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20151104022146) do
 
   create_table "custom_fields", force: :cascade do |t|
     t.string   "name"
+    t.integer  "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
