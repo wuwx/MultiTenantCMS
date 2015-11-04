@@ -5,5 +5,9 @@
  *
 
  *= require_self
+ *= require "_bootstrap-sprockets"
+ *= require "_bootstrap"
  *= require_tree .
 */
+
+@import url('https://cdn.bootcss.com/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css');

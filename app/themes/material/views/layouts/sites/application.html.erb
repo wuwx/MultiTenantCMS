@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Bootstrap-material-design</title>
-  <%= stylesheet_link_tag "//cdn.bootcss.com/material/0.3.0/css/material-fullpalette.css", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "material/all", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "material/all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "https://cdn.bootcss.com/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css
+", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    [@site_theme, 'application'].compact.join("/"), media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag [@site_theme, 'application'].compact.join("/"), 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
