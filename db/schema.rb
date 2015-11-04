@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104022146) do
+ActiveRecord::Schema.define(version: 20151104125414) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20151104022146) do
     t.integer  "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_values", force: :cascade do |t|
+    t.text     "value"
+    t.integer  "custom_field_id"
+    t.integer  "post_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "links", force: :cascade do |t|

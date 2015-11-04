@@ -1,14 +1,24 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @custom_fields.each do |custom_field| %>
-    <tr>
-      <td><%= custom_field.name %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div >
+      <%= link_to "新建", new_site_settings_custom_field_path(@site), class: "btn btn-primary btn-lg pull-right" %>
+    </div>
+    <h5>属性列表</h5>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @custom_fields.each do |custom_field| %>
+        <tr>
+          <td><%= custom_field.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
