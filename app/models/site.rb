@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: sites
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  slug       :string
+#  title      :string
+#  theme      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Site < ActiveRecord::Base
   belongs_to :user
   has_many :categories

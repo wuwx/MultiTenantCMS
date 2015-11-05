@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,6 +43,7 @@ group :development do
   gem 'rails_db', '~> 0.6'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'annotate'
 end
 
 gem 'codeclimate-test-reporter', '~> 0.4.8', group: :test, require: nil
