@@ -1,5 +1,5 @@
 <%= simple_form_for [@site, :settings, @custom_field] do |f| %>
+  <%= f.input :field_format, collection: ['string', 'text'] %>
   <%= f.input :name %>
-  <%= f.input :field_format %>
   <%= f.button :submit %>
 <% end %>
