@@ -38,7 +38,7 @@ SimpleNavigation::Configuration.run do |navigation|
             themes.dom_class = 'nav nav-tabs'
             themes.selected_class = 'active'
             themes.item :themes, '模板', site_settings_themes_path(@site)
-            themes.item :widgets, '小组件', site_settings_widgets_path(@site)
+            themes.item :widgets, '小组件', site_settings_widgets_path(@site), highlights_on: :subpath
           end
           settings.item :plugins, '插件配置', site_settings_plugins_path(@site), link_html: {class: 'list-group-item'}, highlights_on: :subpath
         end

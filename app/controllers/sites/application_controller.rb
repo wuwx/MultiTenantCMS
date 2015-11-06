@@ -6,6 +6,10 @@ class Sites::ApplicationController < ::ApplicationController
     controller.prepend_view_path "app/themes/#{@site_theme}/views"
   end
 
+  has_widgets do |root|
+    root << widget(:links)
+  end
+
   private
     def set_site
       @site ||= Site.find(params[:site_id])

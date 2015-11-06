@@ -1,0 +1,4 @@
+<%= content_tag_for :tr, widget do %>
+  <td><%= link_to widget.name, edit_site_settings_widget_path(@site, widget) %></td>
+  <td><%= link_to "Delete", site_settings_widget_path(@site, widget), :class => "btn btn-sm btn-default", :method => :delete, :data => { :confirm => "are you sure ?" } %></td>
+<% end %>

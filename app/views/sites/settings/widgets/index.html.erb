@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div >
+      <%= link_to "新建", new_site_settings_widget_path(@site), class: "btn btn-primary btn-lg pull-right" %>
+    </div>
+    <h5>小组件列表</h5>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th width="80">Actions</th>
+      </thead>
+      <tbody>
+        <%= render @widgets %>
+      </tbody>
+    </table>
+  </div>
+</div>
