@@ -5,7 +5,7 @@
   <%= f.simple_fields_for :custom_values do |ff| %>
     <%= ff.input :id, as: :hidden %>
     <%= ff.association :custom_field, as: :hidden %>
-    <%= ff.input :value, label: ff.object.custom_field.name, as: :string %>
+    <%= ff.input :value, label: ff.object.custom_field.name, as: ff.object.custom_field.field_format %>
   <% end %>
   <%= f.button :submit %>
 <% end %>
