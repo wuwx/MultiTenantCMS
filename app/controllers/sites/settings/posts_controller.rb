@@ -1,9 +1,11 @@
 class Sites::Settings::PostsController < Sites::Settings::ApplicationController
 
   def new
-    @site.custom_fields.each do |custom_field|
-      build_resource.custom_values.build(custom_field: custom_field)
-    end
+    new! {
+      @site.custom_fields.each do |custom_field|
+        @post.custom_values.build(custom_field: custom_field)
+      end
+    }
   end
 
   def create
