@@ -1,6 +1,10 @@
 <%= simple_form_for [@site, :settings, @post] do |f| %>
-  <%= f.input :category %>
+  <%= f.association :category, collection: @site.categories %>
   <%= f.input :title %>
   <%= f.input :content, :input_html => { :class => "tinymce" } %>
+  <%= f.simple_fields_for :custom_values do |ff| %>
+    <%= ff.association :custom_field, as: :hidden %>
+    <%= ff.input :value, label: ff.object.custom_field.name, as: :string %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>

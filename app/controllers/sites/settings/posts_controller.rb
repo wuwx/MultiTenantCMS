@@ -1,5 +1,11 @@
 class Sites::Settings::PostsController < Sites::Settings::ApplicationController
 
+  def new
+    @site.custom_fields.each do |custom_field|
+      build_resource.custom_values.build(custom_field: custom_field)
+    end
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to edit_site_settings_post_url(id: @post) }
@@ -13,7 +19,7 @@ class Sites::Settings::PostsController < Sites::Settings::ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :custom_values_attributes => [:custom_field_id, :value])
     end
 
     def collection
