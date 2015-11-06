@@ -21,7 +21,7 @@ class Sites::Settings::PostsController < Sites::Settings::ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:category_id, :title, :content, :custom_values_attributes => [:custom_field_id, :value])
+      params.require(:post).permit(:category_id, :title, :content, :custom_values_attributes => [:id, :custom_field_id, :value])
     end
 
     def collection

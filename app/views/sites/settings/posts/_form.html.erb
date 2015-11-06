@@ -3,6 +3,7 @@
   <%= f.input :title %>
   <%= f.input :content, :input_html => { :class => "tinymce" } %>
   <%= f.simple_fields_for :custom_values do |ff| %>
+    <%= ff.input :id, as: :hidden %>
     <%= ff.association :custom_field, as: :hidden %>
     <%= ff.input :value, label: ff.object.custom_field.name, as: :string %>
   <% end %>
