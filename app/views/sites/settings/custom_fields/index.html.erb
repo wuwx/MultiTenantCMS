@@ -15,7 +15,7 @@
       <tbody>
         <% @custom_fields.each do |custom_field| %>
         <tr>
-          <td><%= custom_field.name %></td>
+          <td><%= link_to custom_field.name, edit_site_settings_custom_field_path(@site, custom_field) %></td>
         </tr>
         <% end %>
       </tbody>
