@@ -8,6 +8,7 @@ class Sites::ApplicationController < ::ApplicationController
 
   has_widgets do |root|
     root << widget(:links)
+    root << widget(:comments)
   end
 
   private
