@@ -23,16 +23,6 @@
         <%= yield %>
       </div>
       <div class="col-xs-3">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            文章分类
-          </div>
-          <div class="list-group">
-            <% @site.categories.each do |category| %>
-              <%= link_to category.name, "#", class: "list-group-item" %>
-            <% end %>
-          </div>
-        </div>
 
         <div class="panel panel-default">
           <div class="panel-heading">
