@@ -34,17 +34,6 @@
             <% end %>
           </div>
         </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            友情链接
-          </div>
-          <div class="list-group">
-            <% @site.links.each do |link| %>
-              <%= link_to link.name, link.url, class: "list-group-item" %>
-            <% end %>
-          </div>
-        </div>
         
         <% @site.widgets.each do |widget| %>
           <%= render_widget(widget.name) %>
