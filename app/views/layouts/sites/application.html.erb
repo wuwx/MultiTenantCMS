@@ -57,14 +57,7 @@
         </div>
         
         <% @site.widgets.each do |widget| %>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <%= widget.name %>
-          </div>
-          <div class="panel-body">
-            <%= render_widget(widget.name) %>
-          </div>
-        </div>
+          <%= render_widget(widget.name) %>
         <% end %>
         
       </div>
