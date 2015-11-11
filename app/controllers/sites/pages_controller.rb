@@ -1,10 +1,6 @@
 class Sites::PagesController < Sites::ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
-  has_widgets do |root|
-    root << widget(:comments)
-  end
-
   # GET /pages/1
   # GET /pages/1.json
   def show
