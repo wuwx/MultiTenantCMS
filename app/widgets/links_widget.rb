@@ -1,8 +1,8 @@
 class LinksWidget < Apotomo::Widget
 
-  def display(args)
-    @links = args[:links]
+  def display
+    @links = options[:site].links
     render
   end
-
+  
 end

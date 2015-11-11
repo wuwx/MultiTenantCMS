@@ -1,7 +1,7 @@
 class CommentsWidget < Apotomo::Widget
 
-  def display(args)
-    @comments = args[:commentable].comments
+  def display
+    @comments = options[:site].comments
     render
   end
 
