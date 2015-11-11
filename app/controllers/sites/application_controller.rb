@@ -7,8 +7,8 @@ class Sites::ApplicationController < ::ApplicationController
   end
 
   has_widgets do |root|
-    root << widget(:links)
-    root << widget(:comments)
+    root << widget(:links, :site => set_site)
+    root << widget(:comments, :site => set_site)
   end
 
   private
