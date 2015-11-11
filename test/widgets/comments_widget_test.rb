@@ -2,12 +2,11 @@ require 'test_helper'
 
 class CommentsWidgetTest < Apotomo::TestCase
   has_widgets do |root|
-    root << widget(:comments)
+    root << widget(:comments, site: FactoryGirl.create(:site))
   end
   
   test "display" do
-    @post = FactoryGirl.create(:post)
-    render_widget :comments, :display, { :commentable => @post }
+    render_widget :comments
     #assert_select "h1"
   end
 end
