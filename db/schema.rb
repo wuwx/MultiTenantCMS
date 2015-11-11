@@ -122,9 +122,11 @@ ActiveRecord::Schema.define(version: 20151106143405) do
 
   create_table "widgets", force: :cascade do |t|
     t.string   "name"
+    t.string   "title"
+    t.string   "description"
     t.integer  "site_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

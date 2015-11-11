@@ -2,7 +2,7 @@ class Sites::Settings::WidgetsController < Sites::Settings::ApplicationControlle
   
   private
     def widget_params
-      params.require(:widget).permit(:name)
+      params.require(:widget).permit(:name, :title, :description)
     end
     
     def collection_url

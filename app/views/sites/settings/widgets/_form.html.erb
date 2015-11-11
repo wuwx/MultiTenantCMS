@@ -1,4 +1,6 @@
 <%= simple_form_for [@site, :settings, @widget] do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, collection: [:categories, :comments, :links, :tags] %>
+  <%= f.input :title %>
+  <%= f.input :description %>
   <%= f.button :submit %>
 <% end %>
