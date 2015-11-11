@@ -10,6 +10,7 @@ class Sites::ApplicationController < ::ApplicationController
     root << widget(:links, :site => set_site)
     root << widget(:comments, :site => set_site)
     root << widget(:categories, :site => set_site)
+    root << widget(:tags, :site => set_site)
   end
 
   private
