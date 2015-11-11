@@ -6,7 +6,8 @@ class LinksWidgetTest < Apotomo::TestCase
   end
   
   test "display" do
-    render_widget :links
+    @site = FactoryGirl.create(:site)
+    render_widget :links, :display, { :links => @site.links }
     #assert_select "h1"
   end
 end
