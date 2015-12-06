@@ -45,7 +45,7 @@ GEM
       hooks (~> 0.4.0)
       onfire (~> 0.2.0)
     arel (6.0.3)
-    autoprefixer-rails (6.1.0.1)
+    autoprefixer-rails (6.1.2)
       execjs
       json
     awesome_nested_set (3.0.2)
@@ -53,9 +53,9 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.0)
     cells (3.11.3)
@@ -235,7 +235,7 @@ DEPENDENCIES
   annotate
   apotomo (~> 1.3, >= 1.3.2)
   awesome_nested_set (~> 3.0, >= 3.0.2)
-  bootstrap-sass (~> 3.3, >= 3.3.5.1)
+  bootstrap-sass (~> 3.3, >= 3.3.6)
   byebug
   codeclimate-test-reporter (~> 0.4.8)
   coffee-rails (~> 4.1.0)

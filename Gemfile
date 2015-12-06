@@ -49,7 +49,7 @@ end
 gem 'codeclimate-test-reporter', '~> 0.4.8', group: :test, require: nil
 gem 'factory_girl_rails', '~> 4.5', group: :test
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'flat-ui-sass', '~> 2.1', '>= 2.1.3'
 gem 'tinymce-rails', '~> 4.2', '>= 4.2.6'
 
